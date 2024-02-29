@@ -1,2 +1,5 @@
+const saludo = require('./saludo');
 
-console.log(saludar('freeCodeCamp'));
+console.log(saludo);
+
+console.log(saludo.saludar('freeCodeCamp'));

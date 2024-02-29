@@ -38,11 +38,42 @@ y si hay error imprimimos el error
 si no hay error 
 imprimimos el contenido del archivo
 */
+
+
 const fs = require('fs');
 
+// Ejercicio Practico mostrando el contenido del archivo index.html
 fs.readFile('index.html', 'utf-8', (err, data) => {
   if (err) {
     console.log(err);
+  } else {
+    console.log(data);
+  }
+});
+
+// Ejercicio Practico capturando un error de lectura de un archivo que no existe
+// en este no se detiene la ejecución del programa
+fs.readFile('inde.html', 'utf-8', (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
+
+// sintaxis alternativa
+fs.readFile('index.html', 'utf-8', (err, data) => {
+  if (err) {
+    throw err;
+  } 
+  console.log(data);
+});
+
+// Ejercicio Practico capturando un error de lectura de un archivo que no existe con throw
+// throw muestra el mensaje de error y detiene la ejecución del programa
+fs.readFile('inde.html', 'utf-8', (err, data) => {
+  if (err) {
+    throw err;
   } else {
     console.log(data);
   }

@@ -1,7 +1,7 @@
 /*
 setInterval() 
 Se utiliza para ejectar código un número
-infinito de veces con un retraso específico
+infinito de veces con un intervalo específico
 de milisegundos
 sintaxis
 todos los argumentos que recibe 

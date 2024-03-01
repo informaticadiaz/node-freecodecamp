@@ -31,7 +31,13 @@ pnpm remove express
 npm install express@4.17.1
 pnpm add express@4.17.1
 
-## instalar una dependencia de desarrollo
+## instalar una dependencia de desarrollo (devDependencies)
 
 npm install express --save-dev
 pnpm i express --save-dev
+
+Las devDependencies son las dependencias que se
+van a usar cuando desarrollando la aplicacion
+esas dependencias no se van a usar cuando la
+aplicacion este "en vivo". Estas dependencias
+se pueden instalar como dependencias de desarrollo.

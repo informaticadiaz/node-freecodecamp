@@ -7,8 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ignacio Diaz",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.3"
-  }
+  "license": "ISC"
 }

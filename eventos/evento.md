@@ -49,6 +49,7 @@ En Node.js, los Emisores de Eventos (Event Emitters) son una parte fundamental d
    - En el contexto de Emisores de Eventos, las instancias de la clase `EventEmitter` son los objetos que pueden emitir y escuchar eventos.
 
 Cómo se relacionan:
+
 - En Node.js, puedes crear una clase que extienda `EventEmitter` para crear tu propio emisor de eventos personalizado. Luego, puedes crear instancias de esta clase para trabajar con eventos específicos en tu aplicación.
 - Por ejemplo, podrías tener una clase `Logger` que extiende `EventEmitter`, donde cada instancia de `Logger` representa un logger específico en tu aplicación. Puedes emitir eventos dentro del logger para indicar diferentes acciones, como la creación de un registro, la ocurrencia de un error, etc. Las otras partes de tu aplicación pueden escuchar estos eventos y responder en consecuencia.
 - En resumen, las clases te permiten definir la estructura y el comportamiento de tus objetos, mientras que las instancias son los objetos específicos creados a partir de esas clases. Los emisores de eventos pueden ser clases que extienden `EventEmitter`, y las instancias de estas clases pueden emitir y escuchar eventos en tu aplicación.

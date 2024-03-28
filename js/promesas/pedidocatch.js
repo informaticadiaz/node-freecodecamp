@@ -12,7 +12,9 @@ const miPedidoDePizza = new Promise((resolve, reject) => {
         }
     }, 3000);
 });
-
+// method chaining
+// el encadenamiento de metodos
+// se hace de la siguiente manera
 miPedidoDePizza
     .then((mensajeDeConfirmacion) => {
         console.log(mensajeDeConfirmacion);

@@ -5,7 +5,7 @@ const http = require('http');
 const cursos = require('./cursos');
 // creamos un servidor
 const server = http.createServer((req, res) => {
-// creamos un metodo para manejar las solicitudes  
+  // creamos un metodo para manejar las solicitudes  
   const { method } = req;
   // creamos un switch
   // para manejar las solicitudes GET
@@ -34,7 +34,7 @@ function manejarSolicitudGET(req, res) {
   // si la peticion es / 
   // retornamos un mensaje de bienvenida
   if (path === '/') {
-    return res.end('Bienvenido al servidor Node.js');    
+    return res.end('Bienvenido al servidor Node.js');
   }
   // si la peticion es /cursos
   // retornamos un json con los cursos
@@ -53,7 +53,7 @@ function manejarSolicitudGET(req, res) {
   }
   // si la peticion no es en ninguna de las anteriores
   // retornamos un error
-  else {  
+  else {
     res.statusCode = 404;
     return res.end('Recurso no encontrado');
   }
@@ -62,8 +62,24 @@ function manejarSolicitudGET(req, res) {
 function manejarSolicitudPOST(req, res) {
   const path = req.url;
   if (path === '/cursos/programacion') {
-    res.statusCode = 200;
-    return res.end(`Recibiste una solicitud POST`);
+
+    let body = '';
+
+    req.on('data', contenido => {
+      body += contenido.toString();
+    });
+
+    req.on('end', () => {
+      console.log(body);
+      console.log(typeof body);
+
+      // Convertir el body a un objeto JavaScript
+      body = JSON.parse(body);
+      console.log(body.titulo);
+      console.log(typeof body);
+
+      res.end(`Recibiste una solicitud POST`);
+    })
   }
 }
 

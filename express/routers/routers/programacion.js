@@ -20,6 +20,11 @@ const routerProgramacion = express.Router();
 routerProgramacion.use(express.json());
 
 routerProgramacion.get('/', (req, res) => {
+  // al usar res.send en un objeto de JavaScript 
+  // JSON.stringify es opcional
+  // si sacamos JSON.stringify
+  // el objeto se convierte a formato JSON
+  // de forma automática
   res.send(JSON.stringify(programacion));
 });
 
@@ -33,7 +38,11 @@ routerProgramacion.get('/:lenguaje', (req, res) => {
   if (req.query.ordenar === 'vistas') {
     return res.send(JSON.stringify(resultado.sort((a, b) => b.vistas - a.vistas)));
   }
-
+  // al usar res.send en un objeto de JavaScript 
+  // JSON.stringify es opcional
+  // si sacamos JSON.stringify
+  // el objeto se convierte a formato JSON
+  // de forma automática
   res.send(JSON.stringify(resultado));
 });
 
@@ -44,7 +53,29 @@ routerProgramacion.get('/:lenguaje/:nivel', (req, res) => {
 
   if (resultado.length === 0) {
     return res.status(404).send(`No se encontraron cursos de ${lenguaje} de nivel ${nivel}`);
+    // de forma opcional podemos usar
+    // return res.status(404).end();
+    // para terminar la respuesta
+    // y enviar una respuesta vacia
+    // si no se encuentra el curso
+    // o no se encuentra el nivel
+    // tambien podemos usar
+    // return res.status(204)
+    // para decir que no hubo un error
+    // pero no se encontro contenido
   }
+  // al usar res.send en un objeto de JavaScript 
+  // JSON.stringify es opcional
+  // si sacamos JSON.stringify
+  // el objeto se convierte a formato JSON
+  // de forma automática
+  // tambien podemos utilizar
+  // res.json(resultado)
+  // para asegurarnos que la respuesta
+  // se convierta en un formato tipo JSON
+  // sin importar el tipo de argumento
+  // osea que transformamos en formato JSON
+  // aunque el argumento no sea un objeto de JavaScript
   res.send(JSON.stringify(resultado));
 });
 
@@ -53,6 +84,11 @@ routerProgramacion.get('/:lenguaje/:nivel', (req, res) => {
 routerProgramacion.post('/', (req, res) => {
   let cursoNuevo = req.body;
   programacion.push(cursoNuevo);
+    // al usar res.send en un objeto de JavaScript 
+  // JSON.stringify es opcional
+  // si sacamos JSON.stringify
+  // el objeto se convierte a formato JSON
+  // de forma automática
   res.send(JSON.stringify(programacion));
 });
 
@@ -85,6 +121,11 @@ routerProgramacion.put('/:id', (req, res) => {
   }
 
   // Enviar la lista actualizada de cursos como respuesta.
+    // al usar res.send en un objeto de JavaScript 
+  // JSON.stringify es opcional
+  // si sacamos JSON.stringify
+  // el objeto se convierte a formato JSON
+  // de forma automática
   res.send(JSON.stringify(programacion));
 });
 
@@ -136,7 +177,7 @@ routerProgramacion.patch('/:id', (req, res) => {
 routerProgramacion.delete('/:id', (req, res) => {
   // Obtener el ID del curso de los parámetros de la URL.
   const id = req.params.id;
-  
+
   // Buscar el índice del curso en el arreglo de programación.
   const indice = programacion.findIndex(c => c.id == id);
 
@@ -145,6 +186,11 @@ routerProgramacion.delete('/:id', (req, res) => {
     // Eliminar el curso del arreglo de programación utilizando splice().
     programacion.splice(indice, 1);
     // Enviar la lista actualizada de cursos como respuesta.
+    // al usar res.send en un objeto de JavaScript 
+    // JSON.stringify es opcional
+    // si sacamos JSON.stringify
+    // el objeto se convierte a formato JSON
+    // de forma automática
     res.send(JSON.stringify(programacion));
   }
 });
